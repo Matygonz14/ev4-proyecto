@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Route, Routes} from "react-router-dom";
+import Login from './components/Login';
+import Sales from './components/Sales';
+import ProductsAdmin from './components/products/ProductsAdmin';
+import ProductsAdd from './components/products/ProductsAdd';
+import ProductsEdit from './components/products/ProductsEdit';
+import ClientsAdmin from './components/clients/ClientsAdmin';
+import ClientsAdd from './components/clients/ClientsAdd';
+import ClientsEdit from './components/clients/ClientsEdit';
+import UsersAdmin from './components/users/UsersAdmin';
+import UsersAdd from './components/users/UsersAdd';
+import UsersEdit from './components/users/UsersEdit';
 
 function App() {
-  return (
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Login></Login>}></Route>
+        <Route path="/sales" element={<Sales></Sales>}></Route>
+        <Route path="/products" element={<ProductsAdmin></ProductsAdmin>}></Route>
+        <Route path="/products/add" element={<ProductsAdd></ProductsAdd>}></Route>
+        <Route path='/products/edit' element={<ProductsEdit></ProductsEdit>}></Route>
+        <Route path="/clients" element={<ClientsAdmin />}></Route>
+        <Route path="/clients/add" element={<ClientsAdd />}></Route>
+        <Route path="/clients/edit" element={<ClientsEdit />}></Route>
+        <Route path="/users" element={<UsersAdmin />}></Route>
+        <Route path="/users/add" element={<UsersAdd />}></Route>
+        <Route path="/users/edit" element={<UsersEdit />}></Route>
+      </Routes>
     </div>
   );
 }
