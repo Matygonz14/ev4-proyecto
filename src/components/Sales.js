@@ -283,14 +283,16 @@ class Sales extends React.Component{
                                     <label className="control-label">Tipo de Venta</label>
                                     <select className="form-control" name="type" id="type">
                                         <option value="0">-- --Seleccione</option>
-                                        <option value="0">Afecto</option>
-                                        <option value="0">Exento</option>
+                                        <option value>Afecto</option>
+                                        <option value>Exento</option>
                                     </select>
                                 </div>
                                 <div className="col-6">
                                     <label className="control-label">Tipo de Documento</label>
                                     <select className="form-control" name="document" id="document">
                                         <option value="0">-- --Seleccione</option>
+                                        <option>Boleta</option>
+                                        <option>Factura</option>
                                     </select>
                                     <button className="btn btn-primary btn-block"><i className='fa fa-save'></i> Guardar Pedido</button>
                                 </div>
