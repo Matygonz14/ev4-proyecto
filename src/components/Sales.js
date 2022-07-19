@@ -28,7 +28,7 @@ class Sales extends React.Component{
         }
     }
 
-    selectProduct = (event) => {
+    selecccionarProducto = (event) => {
         let product = this.state.productList.find(product => product.id === event.target.value);
         console.log(product);
         this.setState({
@@ -36,7 +36,7 @@ class Sales extends React.Component{
         });
     }
 
-    calculateTotal = () => {
+    calulartotal = () => {
         let product = this.state.product;
         let qty = document.getElementById("qty").value;        
         let discount = document.getElementById("discount").value;
@@ -53,7 +53,7 @@ class Sales extends React.Component{
     }
     
 
-    addToCart = () => {
+    agregaralCarro = () => {
         let product = this.state.product;
         let errors = "";
         let qty = document.getElementById("qty").value;        
@@ -81,7 +81,7 @@ class Sales extends React.Component{
         
     }
 
-    removeCartItem = (item) => {
+    eliminaritemcarro = (item) => {
         let cart = this.state.cart;
         let index = cart.indexOf(item);
         cart.splice(index, 1);
@@ -180,7 +180,7 @@ class Sales extends React.Component{
                                 <div className="col-12">
                                     <div className="form-group">
                                         <label className="control-label">Producto</label>
-                                        <select  name="product" id="product" className="form-control" onChange={this.selectProduct}>
+                                        <select  name="product" id="product" className="form-control" onChange={this.selecccionarProducto}>
                                             <option value="0">--Seleccione</option>
                                             {productList.map(product => (
                                                 <option key={product.id} value={product.id}>
@@ -205,7 +205,7 @@ class Sales extends React.Component{
                                 <div className="col-4">
                                     <div className="form-group">
                                         <label className="label-control" >Cantidad</label>
-                                        <input className="form-control" type="number" name="qty" id="qty" onChange={this.calculateTotal} />
+                                        <input className="form-control" type="number" name="qty" id="qty" onChange={this.calulartotal} />
                                     </div>
                                 </div>
                                 <div className="col-4">
@@ -217,7 +217,7 @@ class Sales extends React.Component{
                                 <div className="col-4">
                                     <div className="form-group">
                                         <label className="label-control" >Descuento</label>
-                                        <input className="form-control" type="text" name="discount" id="discount" onChange={this.calculateTotal} />
+                                        <input className="form-control" type="text" name="discount" id="discount" onChange={this.calulartotal} />
                                     </div> 
                                 </div>
                                 <div className="col-4">
@@ -227,7 +227,7 @@ class Sales extends React.Component{
                                     </div>
                                 </div>
                                 <div className="col-12">
-                                    <button className="btn btn-primary btn-block" onClick={this.addToCart}>
+                                    <button className="btn btn-primary btn-block" onClick={this.agregaralCarro}>
                                         <i className="fas fa-cart-plus" />Agregar
                                     </button>
                                 </div>
@@ -251,7 +251,7 @@ class Sales extends React.Component{
                                                     <td>{cl.qty}</td>
                                                     <td>{cl.total}</td>
                                                     <td>
-                                                        <button className="btn btn-danger" onClick={this.removeCartItem.bind(cl)}>
+                                                        <button className="btn btn-danger" onClick={this.eliminaritemcarro.bind(cl)}>
                                                             <i className="fas fa-trash"></i>
                                                         </button>
                                                     </td>
